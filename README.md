@@ -1,5 +1,6 @@
 # CoffeeFrameWork
 Unity游戏框架
+- 基于unity 2021.2.13开发
 ## 框架脑图
 ## 文件夹结构
 ## 资源管理模块
