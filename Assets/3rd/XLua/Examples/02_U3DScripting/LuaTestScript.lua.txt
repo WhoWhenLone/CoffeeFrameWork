@@ -6,6 +6,7 @@
 
 local speed = 10
 local lightCpnt = nil
+local cube = nil
 
 function start()
 	print("lua start...")

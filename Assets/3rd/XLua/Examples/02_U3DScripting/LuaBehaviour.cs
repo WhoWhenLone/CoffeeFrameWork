@@ -20,7 +20,42 @@ namespace XLuaTest
     public class Injection
     {
         public string name;
+        [OnValueChanged("ChangeObject")]
         public GameObject value;
+        [ValueDropdown("GetComponents"), EnableIf("@this.value")]
+        public UnityEngine.Object component;
+
+        private IEnumerable GetComponents()
+        {
+            if (value == null)
+            {
+                return null;
+            }
+
+            var compoments = value.GetComponents<Component>();
+            var list = new ValueDropdownList<UnityEngine.Object>();
+            foreach (var compoment in compoments)
+            {
+                list.Add(compoment);
+            }
+
+            return list;
+        }
+        
+        private void ChangeObject()
+        {
+            if (value)
+            {
+                if (!string.IsNullOrEmpty(value.name))
+                {
+                    name = "_" + value.name;
+                }
+            }
+            else
+            {
+                name = "";
+            }
+        }
     }
 
     [LuaCallCSharp]
