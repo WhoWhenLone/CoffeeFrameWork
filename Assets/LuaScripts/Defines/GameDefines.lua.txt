@@ -1,0 +1,9 @@
+GameEnum =
+{
+    
+}
+
+UIEnum =
+{
+    
+}

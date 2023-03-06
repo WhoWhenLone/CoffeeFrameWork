@@ -1,0 +1,48 @@
+--- File: class.lua
+--- Created by nancheng.
+--- DateTime: 2023/3/6 11:59
+--- Desc: lua class
+
+function class(classname, super)
+    local superType = type(super)
+    local cls
+
+    if superType ~= "table" then
+        superType = nil
+        super = nil
+    end
+
+    if super then
+        cls = {}
+        setmetatable(cls, {__index = super})
+        cls.super = super
+    else
+        cls = {ctor = function() end}
+    end
+
+    cls.__cname = classname
+    cls.__index = cls
+
+    function cls.new(...)
+        local instance = setmetatable({}, cls)
+        instance.class = cls
+
+        local bases = {}
+        local __super = cls
+        while __super ~= nil do
+            bases[#bases + 1] = __super
+            __super = __super.super
+        end
+
+        for k = #bases, 1, -1 do
+            __super = bases[k];
+            if rawget(__super, "ctor") then
+                __super.ctor(instance, ...)
+            end
+        end
+
+        return instance
+    end
+
+    return cls
+end

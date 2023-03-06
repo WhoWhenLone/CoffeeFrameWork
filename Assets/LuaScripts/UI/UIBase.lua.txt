@@ -1,0 +1,22 @@
+--- File: UIBase.lua
+--- Created by nancheng.
+--- DateTime: 2023/3/6 12:28
+--- Desc: UI Lua 基类
+---@type UnityEngine.GameObject _gameObject 实例引用
+
+local UIBase = class("UIBase")
+local M = UIBase
+
+function M:onConstruct()
+    self._gameObject = ""    
+end
+
+function M:init()
+    
+end
+
+function M:setVisible()
+    
+end
+
+return M
