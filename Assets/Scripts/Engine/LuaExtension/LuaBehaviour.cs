@@ -81,7 +81,7 @@ namespace CoffeeFrameWork
         private readonly UnityEngine.Object m_Null = null;
         private LuaTable m_LuaTable;
         private bool m_IsInject;
-        public void InjectToLua(LuaTable luaTable)
+        public void InjectToLuaTable(LuaTable luaTable)
         {
             if (luaTable == null || m_IsInject)
             {
@@ -103,7 +103,7 @@ namespace CoffeeFrameWork
             }
         }
 
-        public void RemoveFromLua()
+        public void RemoveFromLuaTable()
         {
             if (!m_IsInject || m_LuaTable == null || Injections == null)
             {
@@ -124,16 +124,16 @@ namespace CoffeeFrameWork
 
         private void OnDestroy()
         {
-            RemoveFromLua();
+            RemoveFromLuaTable();
         }
-        
+
         [ContextMenu("生成lua成员构造器")]
         private void CopyLuaBehaviourToClip()
         {
-            string resultStr = "";
-            resultStr = "\nfunction M:construct()\n";
             if (Injections != null && Injections.Length > 0)
             {
+                string resultStr = "";
+                resultStr = "\nfunction M:construct()\n";
                 foreach (var injectInfo in Injections)
                 {
                     if (injectInfo != null && injectInfo.gameObject != null)
@@ -143,9 +143,13 @@ namespace CoffeeFrameWork
                 }
 
                 resultStr += "end \n";
+                Debug.LogError(GameDefines.LuaScriptsRoot);
+                GUIUtility.systemCopyBuffer = resultStr;
             }
-            Debug.LogError(GameDefines.LuaScriptsRoot);
-            GUIUtility.systemCopyBuffer = resultStr;
+            else
+            {
+                EditorUtility.DisplayDialog("警告","属性列表为空，不可创建", "OK");
+            }
         }
     }
 }
