@@ -8,7 +8,7 @@ local UIBase = class("UIBase")
 local M = UIBase
 
 function M:onConstruct()
-    self._gameObject = ""    
+    self._gameObject = ""  
 end
 
 function M:init()
