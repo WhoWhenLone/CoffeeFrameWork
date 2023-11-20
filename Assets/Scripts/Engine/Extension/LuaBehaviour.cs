@@ -127,6 +127,7 @@ namespace CoffeeFrameWork
             RemoveFromLuaTable();
         }
 
+#if UNITY_EDITOR
         [ContextMenu("生成lua成员构造器")]
         private void CopyLuaBehaviourToClip()
         {
@@ -151,6 +152,7 @@ namespace CoffeeFrameWork
                 EditorUtility.DisplayDialog("警告","属性列表为空，不可创建", "OK");
             }
         }
+#endif
     }
 }
 

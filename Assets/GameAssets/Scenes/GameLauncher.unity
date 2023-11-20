@@ -252,6 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 0
+  _frameRate: 30
+  SingletonRoot: {fileID: 0}
 --- !u!1 &2031139929
 GameObject:
   m_ObjectHideFlags: 0

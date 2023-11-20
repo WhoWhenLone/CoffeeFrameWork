@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 1908538265
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dfb58c33221e77c82a3713cadb6d1594
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fb09562e035d170e5716160917c86db7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameAssets/Prefab/Model/yunbingche/yunbingche.prefab
+Dependencies: []

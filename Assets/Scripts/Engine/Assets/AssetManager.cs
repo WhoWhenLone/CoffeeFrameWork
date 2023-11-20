@@ -5,54 +5,41 @@
 
 using CoffeeFrameWork;
 using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Object = System.Object;
 
-public class AssetManager : GameBaseModule
+public class AssetManager : Singleton<AssetManager>
 {
+    private IAssetLoader _loader;
 
-    public static void LoadAsset<T>(string address, Action callback)
+    public override void Initialize()
+    {
+#if UNITY_EDITOR
+        _loader = new AssetLoaderEditor();
+#else
+        _loader = new AssetLoaderEditor();
+#endif
+    }
+
+    public T LoadAsset_Async<T>(string path, Action<Object> callback)
+    {
+        return _loader:LoadAsset_Async<T>(path, callback);
+    }
+
+    public void InstantiateAsset<T>(string path, Action callback)
     {
         
     }
 
-    public static void InstantiateAsset<T>(string address, Action callback)
-    {
-
-        
-    }
-
-    public static void ReleaseAsset(string address, Action callback)
+    public void ReleaseAsset(string path, Action callback)
     {
         
     }
 
-    public static void ReleaseInstantiate(string address, Action callback)
+    public void ReleaseInstantiate(string path, Action callback)
     {
         
-    }
-    public override void Init()
-    {
-        throw new NotImplementedException();
-    }
-    public override void OnEnter()
-    {
-        throw new NotImplementedException();
-    }
-    public override void OnUpdate(float deltaTime)
-    {
-        throw new NotImplementedException();
-    }
-    public override void OnFixUpdate()
-    {
-        throw new NotImplementedException();
-    }
-    public override void OnLateUpdate()
-    {
-        throw new NotImplementedException();
-    }
-    public override void OnExit()
-    {
-        throw new NotImplementedException();
     }
 }
