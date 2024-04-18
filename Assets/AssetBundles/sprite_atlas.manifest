@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 1483248261
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0fd2e7b42bf716775088586eed189c14
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c29c357128feff56790ec9816c4fc93d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameAssets/Sprites/Test/1.png
+- Assets/GameAssets/Sprites/Test/3.png
+- Assets/GameAssets/Sprites/Test/atlas/test.spriteatlas
+- Assets/GameAssets/Sprites/Test/2.png
+Dependencies: []
