@@ -14,7 +14,7 @@ namespace CoffeeFrameWork
         {
             base.OnUpdate(delta);
             _index++;
-            Debug.LogError(_index);
+            // Debug.LogError(_index);
         }
         
         public string GetName()

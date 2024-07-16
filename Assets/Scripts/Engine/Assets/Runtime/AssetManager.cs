@@ -19,7 +19,7 @@ public class AssetManager : Singleton<AssetManager>
 #if UNITY_EDITOR
         _loader = new AssetLoaderEditor();
 #else
-        _loader = new AssetLoaderEditor();
+        _loader = new AssetLoaderBundle();
 #endif
     }
 
