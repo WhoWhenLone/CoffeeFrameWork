@@ -1,5 +1,5 @@
 # CoffeeFrameWork
-Unity游戏框架
+Unity游戏框架，学习案例
 - 基于unity 2021.2.13开发
 ## 框架脑图
 ## 文件夹结构
