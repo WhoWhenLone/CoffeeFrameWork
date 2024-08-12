@@ -40,4 +40,5 @@ public class BuildBundle
         };
         BuildPipeline.BuildAssetBundles(Application.dataPath + "/AssetBundles", buildList, BuildAssetBundleOptions.ChunkBasedCompression | BuildAssetBundleOptions.ForceRebuildAssetBundle | BuildAssetBundleOptions.DisableWriteTypeTree, BuildTarget.StandaloneWindows);
     }
+    
 }
