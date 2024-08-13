@@ -1,7 +1,9 @@
 ﻿// Task_BuildBundle.cs
 // Created by nancheng.
 // DateTime: 2024年8月12日 19:40:48
-// Desc: 
+// Desc: 构建Bundle资源
+
+using CoffeeAsset.Utils;
 
 namespace CoffeeAsset.Build
 {
@@ -9,7 +11,7 @@ namespace CoffeeAsset.Build
     {
         public void Run(BuildContext context)
         {
-            
+            AssetLogHelper.Log("Task_BuildBundle");
         }
     }
 }

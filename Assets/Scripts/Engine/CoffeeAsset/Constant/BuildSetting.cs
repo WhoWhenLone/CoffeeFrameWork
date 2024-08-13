@@ -7,11 +7,9 @@ namespace CoffeeAsset
 {
     public class BuildSetting
     {
-        public bool EnableLog;
+        public static bool EnableLog;
 
-        public string BuildOutputRoot;
+        public static string AssetConfigPath = "Assets/Scripts/Engine/CoffeeAsset/BuildConfig/asset_config.asset";
 
-        public string BuildGroupPath;
-        
     }
 }

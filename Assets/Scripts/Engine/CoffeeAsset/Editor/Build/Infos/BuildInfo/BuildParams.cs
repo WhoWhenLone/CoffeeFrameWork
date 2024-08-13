@@ -2,6 +2,8 @@
 // Created by nancheng.
 // DateTime: 2024年8月12日 20:39:03
 
+using UnityEditor;
+
 namespace CoffeeAsset.Build
 {
     public class BuildParams
@@ -35,5 +37,15 @@ namespace CoffeeAsset.Build
         /// 资源构建模式
         /// </summary>
         public BuildMode BuildMode;
+
+        /// <summary>
+        /// 构建操作
+        /// </summary>
+        public BuildAssetBundleOptions BuildOptions;
+
+        /// <summary>
+        /// 构建平台
+        /// </summary>
+        public BuildTarget BuildTarget;
     }
 }

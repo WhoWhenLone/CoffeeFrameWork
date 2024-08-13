@@ -1,4 +1,4 @@
-﻿// BuildAssetInfo.cs
+﻿// BuildBundleInfo.cs
 // Created by nancheng.
 // DateTime: 2024年8月12日 21:21:23
 // Desc: 
@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace CoffeeAsset.Build
 {
-    public class BuildAssetInfo
+    public class BuildBundleInfo
     {
         /// <summary>
         /// Bundle名称
@@ -21,22 +21,34 @@ namespace CoffeeAsset.Build
         /// </summary>
         public List<AssetInfo> AssetInfos = new List<AssetInfo>();
 
-        public void AddAsset(string path)
+        // 捞到所有要打包的文件
+        // 捞到这些文件所有的依赖的文件
+        // 怎么剔除这些文件里 没有用到资源
+
+        public BuildBundleInfo(string abName)
         {
-            if (IsContainAsset(path))
+            BundleName = abName;
+        }
+        
+        public void PackAsset(AssetInfo assetInfo)
+        {
+            if (IsContainAsset(assetInfo))
             {
-                throw new Exception($"Asset is existed = {path}");
+                throw new Exception($"Asset is existed = {assetInfo.AssetPath}");
             }
-            // var assetInfo = new AssetInfo()
-            // {
-            //     AssetPath = path,
-            //     AssetGUID = 
-            // }
+            
+            AssetInfos.Add(assetInfo);
         }
 
         private bool IsContainAsset(AssetInfo assetInfo)
         {
-
+            foreach (var temp in AssetInfos)
+            {
+                if (assetInfo.AssetPath == temp.AssetPath)
+                {
+                    return true;
+                }
+            }
             return false;
         }
         

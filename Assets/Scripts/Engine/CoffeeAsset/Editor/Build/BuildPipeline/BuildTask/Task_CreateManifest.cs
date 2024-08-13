@@ -1,7 +1,9 @@
 ﻿// Task_CreateManifest.cs
 // Created by nancheng.
 // DateTime: 2024年8月12日 19:40:53
-// Desc: 
+// Desc: 生成资源清单
+
+using CoffeeAsset.Utils;
 
 namespace CoffeeAsset.Build
 {
@@ -9,7 +11,7 @@ namespace CoffeeAsset.Build
     {
         public void Run(BuildContext context)
         {
-            
+            AssetLogHelper.Log("Task_CreateManifest");
         }
     }
 }

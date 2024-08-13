@@ -4,6 +4,7 @@
 // Desc: 
 
 using System.Collections.Generic;
+using UnityEditor;
 
 namespace CoffeeAsset.Build
 {
@@ -25,13 +26,16 @@ namespace CoffeeAsset.Build
         public string AssetGUID;
 
         /// <summary>
-        /// 依赖的资源
-        /// </summary>
-        public List<AssetInfo> AllDependAssets;
-        
-        /// <summary>
         /// 资源类型
         /// </summary>
         public System.Type AssetType;
+
+        public AssetInfo(string path, string belongAbName)
+        {
+            BelongAbName = belongAbName;
+            AssetPath = path;
+            AssetGUID = AssetDatabase.AssetPathToGUID(path);
+            AssetType = AssetDatabase.GetMainAssetTypeAtPath(path);
+        }
     }
 }
