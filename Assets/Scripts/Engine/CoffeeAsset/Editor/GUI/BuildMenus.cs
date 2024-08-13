@@ -13,10 +13,12 @@ namespace CoffeeAsset.Build.GUI
         public static void BuildBundle()
         {
             var buildParam = new BuildParams();
-            buildParam.AppVersion = "1.0.0";
-            buildParam.AssetVersion = "1";
+            var assetCfg = AssetDatabase.LoadAssetAtPath<CoffeeAssetConfig>(BuildSetting.AssetConfigPath);
+            buildParam.AppVersion = assetCfg.AppVersion;
+            buildParam.AssetVersion = assetCfg.ResVersion;
             buildParam.BuildMode = BuildMode.SimulateBuild;
             buildParam.FileNameStyle = FileNameStyle.FileName_Hash;
+            buildParam.BuildOutputRoot = assetCfg.OutputPath;
             
             BuildLauncher.ExecuteBuildBundle(buildParam);
         }

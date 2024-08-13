@@ -1,8 +1,9 @@
 ﻿// Task_BuildBundle.cs
 // Created by nancheng.
-// DateTime: 2024年8月12日 19:40:48
-// Desc: 构建Bundle资源
+// DateTime: 2024年8月12日 19:40:42
+// Desc: 创建BuildBundle数据
 
+using System;
 using CoffeeAsset.Utils;
 
 namespace CoffeeAsset.Build
@@ -11,7 +12,27 @@ namespace CoffeeAsset.Build
     {
         public void Run(BuildContext context)
         {
-            AssetLogHelper.Log("Task_BuildBundle");
+            AssetLogHelper.Log("Task_CreateBuildBundles");
+
+            var buildMapContext = context.GetContextObject<BuildBundleMapContext>();
+            var buildParamsContext = context.GetContextObject<BuildParamContext>();
+            
+            var bundleOutPutDir = buildParamsContext.Params.BuildOutputRoot;
+            var buildOptions = buildParamsContext.Params.BuildOptions;
+            var buildTarget = buildParamsContext.Params.BuildTarget;
+            var bundleBuilds = buildMapContext.GetAllBundleBuilds();
+
+            var unityManifest =
+                UnityEditor.BuildPipeline.BuildAssetBundles(bundleOutPutDir, bundleBuilds, buildOptions, buildTarget);
+
+            if (unityManifest == null)
+            {
+                throw new Exception("BuildAssetBundles Failed");
+            }
+            
+            var buildResultContext = new BuildResultContext();
+            context.AddContextObject(buildResultContext);
+            buildResultContext.UnityManifest = unityManifest;
         }
     }
 }

@@ -67,15 +67,12 @@ namespace CoffeeAsset.Build
                 
                 // 收集Bundle组信息
                 new Task_CollectBundleGroups(),
-                
-                // 创建所有Bundle信息
-                new Task_CreateBuildBundles(),
-                
+
                 // 构建Bundle
                 new Task_BuildBundle(),
                 
                 // 生成资源清单
-                new Task_CreateManifest(),
+                new Task_CreateAssetFile(),
                 
                 // 生成版本信息
                 new Task_CreateVersionFile(),
