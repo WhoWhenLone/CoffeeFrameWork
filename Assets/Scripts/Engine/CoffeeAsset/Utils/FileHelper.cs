@@ -13,6 +13,11 @@ namespace CoffeeAsset.Utils
     {
         public static FileInfo[] GetAllFiles(string path, string pattern, SearchOption option)
         {
+            if (string.IsNullOrEmpty(pattern))
+            {
+                pattern = "*";
+            }
+
             var direction = new DirectoryInfo(path);
             return direction.GetFiles(pattern, option);
         }

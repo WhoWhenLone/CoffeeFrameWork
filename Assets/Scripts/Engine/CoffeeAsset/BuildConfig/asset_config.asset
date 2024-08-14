@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80625b6ea44241ee899cec2a275919ad, type: 3}
   m_Name: asset_config
   m_EditorClassIdentifier: 
-  AppVersion: 
-  ResVersion: 
-  OutputPath: 
-  BuildGroups: []
+  AppVersion: 1
+  ResVersion: 1
+  OutputPath: AssetBundles
+  BuildGroups:
+  - {fileID: 11400000, guid: 0e61a294cccb8dd4fbfe3e3d690ecc0f, type: 2}

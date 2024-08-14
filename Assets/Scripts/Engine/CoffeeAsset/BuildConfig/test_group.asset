@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: test_group
   m_EditorClassIdentifier: 
   GroupName: test
-  BuildAssetInfo:
-  - PackName: test_ui
+  BuildPackInfos:
+  - PackName: ui
     AssetPath: Assets/GameAssets/Prefab/UI
-    PackRuleType: 1
+    PackRuleType: 0
     PackAssetType: 0
     SearchPattern: 
     DeliverType: 0

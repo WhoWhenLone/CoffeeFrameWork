@@ -17,7 +17,7 @@ namespace CoffeeAsset.Build
             var buildMapContext = context.GetContextObject<BuildBundleMapContext>();
             var buildParamsContext = context.GetContextObject<BuildParamContext>();
             
-            var bundleOutPutDir = buildParamsContext.Params.BuildOutputRoot;
+            var bundleOutPutDir = buildParamsContext.GetBuildOutputFolder();
             var buildOptions = buildParamsContext.Params.BuildOptions;
             var buildTarget = buildParamsContext.Params.BuildTarget;
             var bundleBuilds = buildMapContext.GetAllBundleBuilds();

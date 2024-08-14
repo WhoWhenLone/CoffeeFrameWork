@@ -20,6 +20,7 @@ namespace CoffeeAsset.Build.CollectInfo
         public CollectBundleInfo(string abName)
         {
             BundleName = abName;
+            AssetInfos = new List<AssetInfo>();
         }
         
         public void CollectAsset(AssetInfo assetInfo)

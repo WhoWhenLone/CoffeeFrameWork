@@ -46,26 +46,30 @@ namespace CoffeeAsset.Build
                 }
             }
             
-            // 当前用到的资源信息
-            var allUseAssetInfos = new Dictionary<string, AssetInfo>();
+            // 获取打包配置中收集出来的当前所有依赖类型的资源
+            // 获取当前主资源及所有依赖资源
+            // 收集出来的依赖，在主资源及依赖里 才真正打包
             
-            foreach (var collectInfo in collectBundleInfoList)
-            {
-                if (collectInfo.PackAssetType == PackAssetType.MainAsset)
-                {
-                    foreach (var assetInfo in collectInfo.AssetInfos)
-                    {
-                        allUseAssetInfos.Add(assetInfo.AssetPath, assetInfo);
-                        var dependAssets = AssetDatabase.GetDependencies(assetInfo.AssetPath);
-                        foreach (var denpend in dependAssets)
-                        {
-                            allUseAssetInfos.Add(denpend, buildAssetMap[denpend]);                            
-                        }
-                    }
-                }
-            }
+            // 当前用到的资源信息
+            // var allUseAssetInfos = new Dictionary<string, AssetInfo>();
+            //
+            // foreach (var collectInfo in collectBundleInfoList)
+            // {
+            //     if (collectInfo.PackAssetType == PackAssetType.MainAsset)
+            //     {
+            //         foreach (var assetInfo in collectInfo.AssetInfos)
+            //         {
+            //             allUseAssetInfos.Add(assetInfo.AssetPath, assetInfo);
+            //             var dependAssets = AssetDatabase.GetDependencies(assetInfo.AssetPath);
+            //             foreach (var denpend in dependAssets)
+            //             {
+            //                 allUseAssetInfos.Add(denpend, buildAssetMap[denpend]);                            
+            //             }
+            //         }
+            //     }
+            // }
 
-            foreach (var assetInfo in allUseAssetInfos.Values)
+            foreach (var assetInfo in buildAssetMap.Values)
             {
                 buildMapContext.PackAsset(assetInfo);
             }

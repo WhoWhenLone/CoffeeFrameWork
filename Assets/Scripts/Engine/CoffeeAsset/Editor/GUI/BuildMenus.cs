@@ -19,6 +19,7 @@ namespace CoffeeAsset.Build.GUI
             buildParam.BuildMode = BuildMode.SimulateBuild;
             buildParam.FileNameStyle = FileNameStyle.FileName_Hash;
             buildParam.BuildOutputRoot = assetCfg.OutputPath;
+            buildParam.BuildTarget = BuildTarget.Android;
             
             BuildLauncher.ExecuteBuildBundle(buildParam);
         }
