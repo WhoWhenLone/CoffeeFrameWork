@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using CoffeeAsset.Build.CollectInfo;
 using CoffeeAsset.Build.PackRule;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using static CoffeeAsset.PackRuleType;
 
 namespace CoffeeAsset.Build
@@ -25,6 +26,20 @@ namespace CoffeeAsset.Build
         /// </summary>
         [FolderPath]
         public string AssetPath;
+
+        [Button("Ping")]
+        public void PingPath()
+        {
+            if (string.IsNullOrEmpty(AssetPath))
+            {
+                return;
+            }
+            
+            var obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(AssetPath);
+            EditorUtility.FocusProjectWindow();
+            Selection.activeObject = obj;
+            EditorGUIUtility.PingObject(obj);
+        }
         
         /// <summary>
         /// 收集规则

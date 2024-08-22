@@ -29,8 +29,8 @@ namespace CoffeeAsset.Build
             {
                 IBuildTask task = list[i];
                 var taskName = task.GetType().Name;
-                try
-                {
+                // try
+                // {
                     EditorUtility.DisplayProgressBar("构建资源", taskName, i / totalCount);
                     
                     Debug.Log($"---------------------构建任务{taskName}---------------------");
@@ -42,14 +42,14 @@ namespace CoffeeAsset.Build
                     totalTime += curSeconds;
                     
                     Debug.Log($"构建结束，时长 = {curSeconds}");
-                }
-                catch (Exception e)
-                {
-                    result.Success = false;
-                    result.FailedTask = taskName;
-                    result.ErrorInfo = e.ToString();
-                    break;
-                }
+                // }
+                // catch (Exception e)
+                // {
+                //     result.Success = false;
+                //     result.FailedTask = taskName;
+                //     result.ErrorInfo = e.ToString();
+                //     break;
+                // }
             }
 
             EditorUtility.ClearProgressBar();

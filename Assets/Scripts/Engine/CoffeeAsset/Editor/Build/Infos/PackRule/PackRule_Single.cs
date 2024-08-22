@@ -1,7 +1,7 @@
 ﻿// PackRule_Single.cs
 // Created by nancheng.
 // DateTime: 2024年8月13日 15:21:54
-// Desc: 
+// Desc: 所有文件都单打
 
 using System.Collections.Generic;
 using System.IO;
@@ -23,7 +23,7 @@ namespace CoffeeAsset.Build.PackRule
                 {
                     var assetPath = PathHelper.FormatPath(fileInfo.ToString());
                     var abName = FileHelper.GetAbName(assetPath);
-                    var assetInfo = new AssetInfo(assetPath, abName);
+                    var assetInfo = new AssetInfo(assetPath, abName, packInfo.PackAssetType);
                     
                     var collectInfo = new CollectBundleInfo(assetPath);
                     collectInfo.PackAssetType = packInfo.PackAssetType;

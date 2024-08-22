@@ -17,3 +17,4 @@ MonoBehaviour:
   OutputPath: AssetBundles
   BuildGroups:
   - {fileID: 11400000, guid: 0e61a294cccb8dd4fbfe3e3d690ecc0f, type: 2}
+  - {fileID: 11400000, guid: d1cace3c55cd91a49b19ca4e777a184f, type: 2}

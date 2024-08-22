@@ -23,5 +23,17 @@ namespace CoffeeAsset.Build.GUI
             
             BuildLauncher.ExecuteBuildBundle(buildParam);
         }
+
+        [MenuItem("CoffeeAsset/PingAssetConfig")]
+        public static void PingAssetConfig()
+        {
+            var assetCfg = AssetDatabase.LoadAssetAtPath<CoffeeAssetConfig>(BuildSetting.AssetConfigPath);
+            if (assetCfg != null)
+            {
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = assetCfg;
+                EditorGUIUtility.PingObject(assetCfg);
+            }
+        }
     }
 }

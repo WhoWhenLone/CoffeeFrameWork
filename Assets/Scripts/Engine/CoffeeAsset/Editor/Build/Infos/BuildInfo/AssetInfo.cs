@@ -30,10 +30,18 @@ namespace CoffeeAsset.Build
         /// </summary>
         public System.Type AssetType;
 
-        public AssetInfo(string path, string belongAbName)
+        /// <summary>
+        /// 资源收集类型
+        /// </summary>
+        public PackAssetType PackAssetType;
+        
+        /// <param name="path"></param>
+        /// <param name="belongAbName"></param>
+        public AssetInfo(string path, string belongAbName, PackAssetType packType)
         {
             BelongAbName = belongAbName;
             AssetPath = path;
+            PackAssetType = packType;
             AssetGUID = AssetDatabase.AssetPathToGUID(path);
             AssetType = AssetDatabase.GetMainAssetTypeAtPath(path);
         }
